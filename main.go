@@ -24,7 +24,7 @@ func main() {
 }
 
 func printAndWait() {
-	fmt.Println("Doing ...")
+	fmt.Println("Doing some processing")
 	t := rand.Intn(8)
 	time.Sleep(time.Duration(t) * time.Second)
 }
