@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"sync"
 	"time"
 )
 
 func main() {
-	ch := make(chan bool, 100)
+	ch := make(chan bool, 5)
 	var wg sync.WaitGroup
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 30; i++ {
 		ch <- true
 		wg.Add(1)
 		go func() {
@@ -24,5 +25,6 @@ func main() {
 
 func printAndWait() {
 	fmt.Println("Doing ...")
-	time.Sleep(2 * time.Second)
+	t := rand.Intn(8)
+	time.Sleep(time.Duration(t) * time.Second)
 }
